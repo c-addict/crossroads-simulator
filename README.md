@@ -1,6 +1,6 @@
-#Java Enterprise
+# Java Enterprise
 
-##Contributor
+## Contributor
 - [Zelenev Nikolay](https://github.com/c-addict)
 
 ## Задание №6: Моделирование движения на перекрестке дорог
