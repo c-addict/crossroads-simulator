@@ -1,6 +1,5 @@
 package com.zelenev.model.data.simulation;
 
-import com.zelenev.model.data.entities.Car;
 import org.springframework.context.ApplicationContext;
 
 public class Simulator {
