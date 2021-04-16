@@ -1,6 +1,6 @@
-package com.zelenev.model.data.physics;
+package com.zelenev.data.physics;
 
-import com.zelenev.model.data.physics.position.Point;
+import com.zelenev.data.physics.position.Point;
 
 public abstract class PhysicalObject {
 
