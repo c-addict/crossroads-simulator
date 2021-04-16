@@ -1,17 +1,13 @@
-package com.zelenev.model.data.entities;
+package com.zelenev.data.entities;
 
 import com.zelenev.annotations.InjectRandomCarDirection;
 import com.zelenev.annotations.InjectRandomInt;
-import com.zelenev.model.data.physics.TwoDimensionsPhysicalObject;
-import com.zelenev.model.data.physics.size.TwoDimensionsSize;
-import com.zelenev.model.data.physics.move.IMovableObject;
-import com.zelenev.model.data.physics.position.Point;
-import com.zelenev.model.data.physics.position.TwoDimensionsPoint;
-import com.zelenev.model.data.states.CarDirection;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
+import com.zelenev.data.physics.move.IMovableObject;
+import com.zelenev.data.physics.position.Point;
+import com.zelenev.data.physics.TwoDimensionsPhysicalObject;
+import com.zelenev.data.physics.size.TwoDimensionsSize;
+import com.zelenev.data.physics.position.TwoDimensionsPoint;
+import com.zelenev.data.states.CarDirection;
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -22,7 +18,6 @@ import java.util.Objects;
         name = "car",
         schema = "public"
 )
-@NoArgsConstructor
 public class Car extends TwoDimensionsPhysicalObject implements IMovableObject, Runnable {
 
     @Id
@@ -46,16 +41,12 @@ public class Car extends TwoDimensionsPhysicalObject implements IMovableObject, 
             minValue = 30,
             maxValue = 120
     )
-    @Getter
-    @Setter
     @Column(
             name = "speed"
     )
     private Integer speed;
 
     @InjectRandomCarDirection
-    @Getter
-    @Setter
     @Enumerated(EnumType.STRING)
     @Column(
             name = "direction",
@@ -64,7 +55,11 @@ public class Car extends TwoDimensionsPhysicalObject implements IMovableObject, 
     )
     private CarDirection direction;
 
-    public Car(int width, int height, int startX, int startY) {
+
+    public Car() {
+    }
+
+    public Car(int width, int height, int startX, int startY, Road road) {
         this.size = new TwoDimensionsSize(width, height);
         this.position = new TwoDimensionsPoint(startX, startY);
     }
@@ -79,12 +74,39 @@ public class Car extends TwoDimensionsPhysicalObject implements IMovableObject, 
         //TODO: car movement
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(Integer speed) {
+        this.speed = speed;
+    }
+
+    public CarDirection getDirection() {
+        return direction;
+    }
+
+    public void setDirection(CarDirection direction) {
+        this.direction = direction;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return Objects.equals(id, car.id) && Objects.equals(speed, car.speed) && direction == car.direction;
+        return Objects.equals(this.position.getX(), this.position.getY())
+                && Objects.equals(id, car.id)
+                && Objects.equals(speed, car.speed)
+                && direction == car.direction;
     }
 
     @Override
