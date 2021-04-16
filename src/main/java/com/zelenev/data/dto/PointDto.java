@@ -1,4 +1,4 @@
-package com.zelenev.model.data.dto;
+package com.zelenev.data.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
