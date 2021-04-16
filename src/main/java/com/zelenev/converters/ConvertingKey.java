@@ -1,11 +1,11 @@
 package com.zelenev.converters;
 
-public class MappingKey {
+public class ConvertingKey {
 
     private final Class<?> in;
     private final Class<?> out;
 
-    public MappingKey(Class<?> in, Class<?> out) {
+    public ConvertingKey(Class<?> in, Class<?> out) {
         this.in = in;
         this.out = out;
     }
@@ -15,7 +15,7 @@ public class MappingKey {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        MappingKey that = (MappingKey) o;
+        ConvertingKey that = (ConvertingKey) o;
 
         if (in != null ? !in.equals(that.in) : that.in != null) return false;
         return out != null ? out.equals(that.out) : that.out == null;
