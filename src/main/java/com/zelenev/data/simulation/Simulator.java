@@ -1,4 +1,5 @@
-package com.zelenev.model.data.simulation;
+package com.zelenev.data.simulation;
+
 
 import org.springframework.context.ApplicationContext;
 
@@ -12,8 +13,6 @@ public class Simulator {
 
     public void simulate() {
         //TODO: simulation
-        for (int i = 0; i < 10; i++) {
-            System.out.println(context.getBean("car"));
-        }
+
     }
 }
