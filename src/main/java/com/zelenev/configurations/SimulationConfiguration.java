@@ -1,17 +1,19 @@
-package com.zelenev.configuration;
+package com.zelenev.configurations;
+
 
 import com.zelenev.bpp.InjectRandomCarDirectionAnnotationBeanPostProcessor;
 import com.zelenev.bpp.InjectRandomIntAnnotationBeanPostProcessor;
 import com.zelenev.data.entities.Car;
+import com.zelenev.data.entities.Crossroad;
+import com.zelenev.data.entities.Road;
 import com.zelenev.data.entities.TrafficLight;
 import com.zelenev.data.states.CarDirection;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
-
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
+
 
 @Configuration
 public class SimulationConfiguration {
@@ -20,21 +22,30 @@ public class SimulationConfiguration {
     @Scope("prototype")
     public Car car() {
         //TODO: complete car bean creation
-        Car car = new Car(100, 250, 0, 0);
-        return car;
+        return new Car();
     }
 
     @Bean("trafficLight")
     @Scope("prototype")
     public TrafficLight trafficLight() {
         //TODO: complete traffic light bean creation
-        return null;
+        return new TrafficLight();
     }
 
-    @Bean
-    public Random random() {
-        return new Random();
+    @Bean("crossroad")
+    @Scope("prototype")
+    public Crossroad crossroad() {
+        //TODO: complete crossroad bean creating
+        return new Crossroad();
     }
+
+    @Bean("road")
+    @Scope("prototype")
+    public Road road() {
+        //TODO: complete road bean creating
+        return new Road();
+    }
+
 
     @Bean
     public List<CarDirection> directions() {
