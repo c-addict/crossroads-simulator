@@ -2,7 +2,7 @@ package com.zelenev.converters;
 
 import java.util.List;
 
-public interface ObjectMapper<IN, OUT> {
+public interface ObjectConverter<IN, OUT> {
 
     OUT convert(IN obj);
 
