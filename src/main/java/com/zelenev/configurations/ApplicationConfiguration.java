@@ -1,4 +1,4 @@
-package com.zelenev.configuration;
+package com.zelenev.configurations;
 
 
 import org.springframework.context.annotation.Configuration;
