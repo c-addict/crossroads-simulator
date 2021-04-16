@@ -1,6 +1,6 @@
-package com.zelenev.model.data.dao;
+package com.zelenev.repositories;
 
-import com.zelenev.model.data.entities.Car;
+import com.zelenev.data.entities.Car;
 import org.springframework.data.repository.CrudRepository;
 
 public interface CarRepository extends CrudRepository<Car, Integer> {
