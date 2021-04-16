@@ -1,7 +1,7 @@
 package com.zelenev;
 
-import com.zelenev.configuration.SimulationConfiguration;
-import com.zelenev.model.data.simulation.Simulator;
+import com.zelenev.configurations.SimulationConfiguration;
+import com.zelenev.data.simulation.Simulator;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
