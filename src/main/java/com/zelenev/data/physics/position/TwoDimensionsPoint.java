@@ -1,4 +1,4 @@
-package com.zelenev.model.data.physics.position;
+package com.zelenev.data.physics.position;
 
 
 public class TwoDimensionsPoint extends Point{

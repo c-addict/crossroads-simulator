@@ -1,4 +1,4 @@
-package com.zelenev.model.data.physics.size;
+package com.zelenev.data.physics.size;
 
 
 import lombok.*;

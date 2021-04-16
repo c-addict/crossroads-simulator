@@ -1,6 +1,6 @@
-package com.zelenev.model.data.physics.move;
+package com.zelenev.data.physics.move;
 
-import com.zelenev.model.data.physics.position.Point;
+import com.zelenev.data.physics.position.Point;
 
 public interface IMovableObject {
 
