@@ -1,18 +1,14 @@
 package com.zelenev.bpp;
 
 import com.zelenev.annotations.InjectRandomInt;
+import org.apache.commons.lang3.RandomUtils;
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.util.ReflectionUtils;
-
 import java.lang.reflect.Field;
-import java.util.Random;
 
 public class InjectRandomIntAnnotationBeanPostProcessor implements BeanPostProcessor {
 
-    @Autowired
-    private Random random;
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
@@ -22,7 +18,7 @@ public class InjectRandomIntAnnotationBeanPostProcessor implements BeanPostProce
             if (injectRandomIntAnnotation != null) {
                 int min = injectRandomIntAnnotation.minValue();
                 int max = injectRandomIntAnnotation.maxValue();
-                int randomValue = min + random.nextInt(max - min);
+                int randomValue = RandomUtils.nextInt(min, max + 1);
                 field.setAccessible(true);
                 ReflectionUtils.setField(field, bean, randomValue);
             }
