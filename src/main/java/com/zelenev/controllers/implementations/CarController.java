@@ -1,5 +1,6 @@
-package com.zelenev.controllers;
+package com.zelenev.controllers.implementations;
 
+import com.zelenev.controllers.ICrudController;
 import com.zelenev.data.dto.CarDto;
 import com.zelenev.services.ICrudService;
 import org.springframework.beans.factory.annotation.Qualifier;
