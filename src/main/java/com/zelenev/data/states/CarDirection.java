@@ -1,4 +1,4 @@
-package com.zelenev.model.data.states;
+package com.zelenev.data.states;
 
 public enum CarDirection {
 
