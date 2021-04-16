@@ -1,4 +1,4 @@
-package com.zelenev.model.data.mapper;
+package com.zelenev.converters;
 
 public class MappingKey {
 

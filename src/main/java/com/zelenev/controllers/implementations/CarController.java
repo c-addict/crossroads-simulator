@@ -1,6 +1,6 @@
-package com.zelenev.api.v1.controllers;
+package com.zelenev.controllers;
 
-import com.zelenev.model.data.dto.CarDto;
+import com.zelenev.data.dto.CarDto;
 import com.zelenev.services.ICrudService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;

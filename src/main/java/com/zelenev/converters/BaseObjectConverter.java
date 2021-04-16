@@ -1,4 +1,4 @@
-package com.zelenev.model.data.mapper;
+package com.zelenev.converters;
 
 import java.util.List;
 import java.util.stream.Collectors;

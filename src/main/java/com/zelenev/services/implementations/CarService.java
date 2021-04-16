@@ -1,7 +1,7 @@
 package com.zelenev.services;
 
-import com.zelenev.model.data.dto.CarDto;
-import com.zelenev.model.data.dao.CarRepository;
+import com.zelenev.data.dto.CarDto;
+import com.zelenev.repositories.CarRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
