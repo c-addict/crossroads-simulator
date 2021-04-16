@@ -1,4 +1,4 @@
-package com.zelenev.api.v1.controllers;
+package com.zelenev.controllers;
 
 import java.util.List;
 
