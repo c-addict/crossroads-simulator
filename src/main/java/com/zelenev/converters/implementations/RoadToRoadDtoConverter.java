@@ -10,8 +10,7 @@ public class RoadToRoadDtoConverter extends BaseObjectConverter<Road, RoadDto> {
 
     @Override
     public RoadDto convert(Road obj) {
-        //TODO: complete road to road dto converter
-        return null;
+        return new RoadDto(obj.getCrossroad().getId());
     }
 
     @Override

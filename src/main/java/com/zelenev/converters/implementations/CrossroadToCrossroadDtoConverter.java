@@ -10,8 +10,7 @@ public class CrossroadToCrossroadDtoConverter extends BaseObjectConverter<Crossr
 
     @Override
     public CrossroadDto convert(Crossroad obj) {
-        //TODO: complete crossroad to crossroad dto converter
-        return null;
+        return new CrossroadDto(obj.getCity());
     }
 
     @Override

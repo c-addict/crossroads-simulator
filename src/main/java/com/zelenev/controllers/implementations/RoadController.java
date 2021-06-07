@@ -27,26 +27,32 @@ public class RoadController implements ICrudController<RoadDto> {
             path = "/{id}"
     )
     public RoadDto read(@PathVariable Integer id) {
-        return null;
+        return roadService.read(id);
     }
 
     @Override
+    @GetMapping(
+            path = "/all"
+    )
     public List<RoadDto> readAll() {
-        return null;
+        return roadService.readAll();
     }
 
     @Override
-    public void create(RoadDto roadDto) {
-
+    @PostMapping
+    public void create(@RequestBody RoadDto roadDto) {
+        roadService.create(roadDto);
     }
 
     @Override
-    public void update(RoadDto roadDto, RoadDto newT) {
-
+    @PutMapping
+    public void update(@RequestBody RoadDto roadDto, @RequestBody RoadDto newT) {
+        roadService.update(roadDto, newT);
     }
 
     @Override
-    public void delete(RoadDto roadDto) {
-
+    @DeleteMapping
+    public void delete(@RequestBody RoadDto roadDto) {
+        roadService.delete(roadDto);
     }
 }

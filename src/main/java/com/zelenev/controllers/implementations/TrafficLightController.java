@@ -27,26 +27,32 @@ public class TrafficLightController implements ICrudController<TrafficLightDto> 
             path = "/{id}"
     )
     public TrafficLightDto read(@PathVariable Integer id) {
-        return null;
+        return trafficLightService.read(id);
     }
 
     @Override
+    @GetMapping(
+            path = "/all"
+    )
     public List<TrafficLightDto> readAll() {
-        return null;
+        return trafficLightService.readAll();
     }
 
     @Override
-    public void create(TrafficLightDto trafficLightDto) {
-
+    @PostMapping
+    public void create(@RequestBody TrafficLightDto trafficLightDto) {
+        trafficLightService.create(trafficLightDto);
     }
 
     @Override
-    public void update(TrafficLightDto trafficLightDto, TrafficLightDto newT) {
-
+    @PutMapping
+    public void update(@RequestBody TrafficLightDto trafficLightDto, @RequestBody TrafficLightDto newT) {
+        trafficLightService.update(trafficLightDto, newT);
     }
 
     @Override
-    public void delete(TrafficLightDto trafficLightDto) {
-
+    @DeleteMapping
+    public void delete(@RequestBody TrafficLightDto trafficLightDto) {
+        trafficLightService.delete(trafficLightDto);
     }
 }

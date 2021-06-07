@@ -10,8 +10,7 @@ public class CarToCarDtoConverter extends BaseObjectConverter<Car, CarDto> {
 
     @Override
     public CarDto convert(Car obj) {
-        //TODO: complete car to car dto converter
-        return null;
+        return new CarDto(obj.getSpeed(), obj.getRoad().getId());
     }
 
     @Override

@@ -10,8 +10,7 @@ public class TrafficLightToTrafficLightDtoConverter extends BaseObjectConverter<
 
     @Override
     public TrafficLightDto convert(TrafficLight obj) {
-        //TODO: complete traffic light to traffic light dto converter
-        return null;
+        return new TrafficLightDto(obj.getCrossroad().getId());
     }
 
     @Override

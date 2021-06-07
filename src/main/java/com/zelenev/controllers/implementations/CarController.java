@@ -27,26 +27,32 @@ public class CarController implements ICrudController<CarDto> {
             path = "/{id}"
     )
     public CarDto read(@PathVariable Integer id) {
-        return null;
+        return carService.read(id);
     }
 
     @Override
+    @GetMapping(
+            path = "/all"
+    )
     public List<CarDto> readAll() {
-        return null;
+        return carService.readAll();
     }
 
     @Override
-    public void create(CarDto carDto) {
-
+    @PostMapping
+    public void create(@RequestBody CarDto carDto) {
+        carService.create(carDto);
     }
 
     @Override
-    public void update(CarDto carDto, CarDto newT) {
-
+    @PutMapping
+    public void update(@RequestBody CarDto carDto, @RequestBody CarDto newT) {
+        carService.update(carDto, newT);
     }
 
     @Override
-    public void delete(CarDto carDto) {
-
+    @DeleteMapping
+    public void delete(@RequestBody CarDto carDto) {
+        carService.delete(carDto);
     }
 }

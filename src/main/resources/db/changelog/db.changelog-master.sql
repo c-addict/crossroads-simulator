@@ -1,5 +1,6 @@
 create table "crossroad"(
-    id SERIAL PRIMARY KEY
+    id SERIAL PRIMARY KEY,
+    city VARCHAR(200)
 );
 
 create table "traffic_light"(

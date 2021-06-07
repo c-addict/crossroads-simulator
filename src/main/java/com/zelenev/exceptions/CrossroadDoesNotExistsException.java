@@ -4,9 +4,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(value = HttpStatus.NOT_FOUND)
-public class CarDoesNotExistsException extends RuntimeException {
+public class CrossroadDoesNotExistsException extends RuntimeException {
 
-    public CarDoesNotExistsException(String message) {
+    public CrossroadDoesNotExistsException(String message) {
         super(message);
     }
 }

@@ -1,53 +1,45 @@
 package com.zelenev.data.entities;
 
-import com.zelenev.data.states.TrafficLightMode;
-import com.zelenev.data.physics.TwoDimensionsPhysicalObject;
-import com.zelenev.data.states.TrafficLightState;
 import javax.persistence.*;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "traffic_light")
 @Table(
         name = "traffic_light",
         schema = "public"
 )
-public class TrafficLight extends TwoDimensionsPhysicalObject {
-
-    public TrafficLight() {
-
-    }
-
-    public TrafficLight(TrafficLightMode mode) {
-        this.mode = mode;
-    }
+public class TrafficLight {
 
     @Id
-    @SequenceGenerator(
-            name = "traffic_light_sequence",
-            sequenceName = "traffic_light_sequence",
-            schema = "public",
-            allocationSize = 1
-    )
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "traffic_light_sequence"
+            strategy = GenerationType.IDENTITY
     )
     @Column(
             name = "id"
     )
     private Integer id;
 
-    @Column(
-            name = "mode"
+    @ManyToOne
+    @JoinColumn(
+            name = "crossroad_id",
+            referencedColumnName = "id",
+            foreignKey = @ForeignKey(
+                    name = "traffic_light_crossroad_id"
+            )
     )
-    @Enumerated(
-            EnumType.STRING
-    )
-    private TrafficLightMode mode;
+    private Crossroad crossroad;
 
-    private TrafficLightState forwardDirectionState;
-    private TrafficLightState leftTurnState;
-    private TrafficLightState rightTurnState;
+    public TrafficLight() {
+    }
+
+    public TrafficLight(Crossroad crossroad) {
+        this.crossroad = crossroad;
+    }
+
+    public TrafficLight(Integer id, Crossroad crossroad) {
+        this.id = id;
+        this.crossroad = crossroad;
+    }
 
     public Integer getId() {
         return id;
@@ -57,36 +49,12 @@ public class TrafficLight extends TwoDimensionsPhysicalObject {
         this.id = id;
     }
 
-    public TrafficLightMode getMode() {
-        return mode;
+    public Crossroad getCrossroad() {
+        return crossroad;
     }
 
-    public void setMode(TrafficLightMode mode) {
-        this.mode = mode;
-    }
-
-    public TrafficLightState getForwardDirectionState() {
-        return forwardDirectionState;
-    }
-
-    public void setForwardDirectionState(TrafficLightState forwardDirectionState) {
-        this.forwardDirectionState = forwardDirectionState;
-    }
-
-    public TrafficLightState getLeftTurnState() {
-        return leftTurnState;
-    }
-
-    public void setLeftTurnState(TrafficLightState leftTurnState) {
-        this.leftTurnState = leftTurnState;
-    }
-
-    public TrafficLightState getRightTurnState() {
-        return rightTurnState;
-    }
-
-    public void setRightTurnState(TrafficLightState rightTurnState) {
-        this.rightTurnState = rightTurnState;
+    public void setCrossroad(Crossroad crossroad) {
+        this.crossroad = crossroad;
     }
 
     @Override
@@ -94,22 +62,19 @@ public class TrafficLight extends TwoDimensionsPhysicalObject {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TrafficLight that = (TrafficLight) o;
-        return Objects.equals(id, that.id) && mode == that.mode && forwardDirectionState == that.forwardDirectionState && leftTurnState == that.leftTurnState && rightTurnState == that.rightTurnState;
+        return Objects.equals(id, that.id) && Objects.equals(crossroad, that.crossroad);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, mode, forwardDirectionState, leftTurnState, rightTurnState);
+        return Objects.hash(id, crossroad);
     }
 
     @Override
     public String toString() {
         return "TrafficLight{" +
                 "id=" + id +
-                ", mode=" + mode +
-                ", forwardDirectionState=" + forwardDirectionState +
-                ", leftTurnState=" + leftTurnState +
-                ", rightTurnState=" + rightTurnState +
+                ", crossroad=" + crossroad +
                 '}';
     }
 }

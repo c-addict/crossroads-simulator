@@ -10,8 +10,8 @@ public class Converter {
     private final Map<ConvertingKey, ObjectConverter<?, ?>> mapperMap;
 
     public Converter(List<ObjectConverter<?,?>> mappers) {
-        var tmpMappers = new HashMap<ConvertingKey, ObjectConverter<?,?>>();
-        for (var mapper : mappers) {
+        HashMap<ConvertingKey, ObjectConverter<?, ?>> tmpMappers = new HashMap<ConvertingKey, ObjectConverter<?,?>>();
+        for (ObjectConverter<?, ?> mapper : mappers) {
             tmpMappers.put(new ConvertingKey(mapper.getInClass(), mapper.getOutClass()), mapper);
         }
         this.mapperMap = Collections.unmodifiableMap(tmpMappers);
@@ -22,7 +22,7 @@ public class Converter {
         if (obj == null) {
             return null;
         }
-        var mapper = (ObjectConverter<IN, OUT>)mapperMap.get(new ConvertingKey(obj.getClass(), destClass));
+        ObjectConverter<IN, OUT> mapper = (ObjectConverter<IN, OUT>)mapperMap.get(new ConvertingKey(obj.getClass(), destClass));
         if (mapper == null) {
             throw new RuntimeException("Unsupported mapper. " + obj.getClass() + " -> " + destClass);
         }
@@ -34,7 +34,7 @@ public class Converter {
         if (objList.isEmpty()) {
             return Collections.EMPTY_LIST;
         }
-        var mapper = (ObjectConverter<IN, OUT>)mapperMap.get(new ConvertingKey(objList.get(0).getClass(), destClass));
+        ObjectConverter<IN, OUT> mapper = (ObjectConverter<IN, OUT>)mapperMap.get(new ConvertingKey(objList.get(0).getClass(), destClass));
         if (mapper == null) {
             throw new RuntimeException("Unsupported mapper. " + objList.getClass() + " -> " + destClass);
         }
